@@ -93,6 +93,34 @@ left: 7%;
   left: 10%;
 }
 
+form {
+  position: relative;
+  top: 40%;
+  left: -25%;
+}
+
+.user-task {
+  position: relative;
+  top: 20%;
+}
+
+
+#desired-task {
+  position: relative;
+  top: 20%;
+  left: 14%;
+}
+
+#time-inputs {
+  display:flex;
+  flex-direction: row;
+  position: relative;
+  top: 19%;
+  left: -19%;
+  justify-content: space-between;
+}
+
+
 .past-activities-box {
   position: relative;
   top: 0vh;
