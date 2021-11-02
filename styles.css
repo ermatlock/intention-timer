@@ -37,89 +37,84 @@ body {
 
 .category-box {
   display: flex;
-  vertical-align: middle;
+  flex-direction: column;
+  margin: 2vw;
   width: 58vw;
   height: 67vh;
   font-size: 100%;
-  padding: 4%;
-  position: relative;
-  top: 4vh;
-  left: 2vw;
+  padding: 5%;
   border-radius: 8px;
-  align-items: flex-start;
   box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.3);
   background-color: #46424D;
 }
 
 .select-a-category {
-position: relative;
-top: 5%;
-left: 7%;
+
 
 }
 
+.activity-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
 .category-button {
-/*   display: flex;
-  justify-content: space-between; */
-  position: relative;
-  top: 15%;
-  left: -20%;
   border-radius: 5px;
   border-width: 2px;
   color: #CBC9CF;
   border-color: white;
-  height: 12%;
-  width: 20%;
+  height: 5vw;
+  width: 10vw;
+  
+
 }
 
- #study {
-  background:url(./assets/study.svg) no-repeat center;
+ /* #study {
+  background:url(./assets/study.svg) no-repeat top;
   background-size: 25%;
-  position: relative;
-  left: -19%;
+} */
+
+
+.button-images {
+  width: 25%;
 }
 
 #meditate {
-  background:url(./assets/meditate.svg) no-repeat center;
+  background:url(./assets/meditate.svg) no-repeat top;
   background-size: 25%;
-  position: relative;
-  left: -5%;
+
 }
 
 #exercise {
-  background:url(./assets/exercise.svg) no-repeat center;
+  background:url(./assets/exercise.svg) no-repeat top;
   background-size: 25%;
-  position: relative;
-  left: 10%;
 }
 
 form {
-  position: relative;
-  top: 40%;
-  left: -25%;
+
 }
 
 .user-task {
-  position: relative;
-  top: 20%;
+
 }
 
 
 #desired-task {
-  position: relative;
-  top: 20%;
-  left: 14%;
+  display: flex;
+  flex-direction: column;
 }
 
 #time-inputs {
-  display:flex;
-  flex-direction: row;
-  position: relative;
-  top: 19%;
-  left: -19%;
+  display: flex;
   justify-content: space-between;
 }
 
+.minutes-seconds {
+  display: flex;
+  flex-direction: column;
+}
 
 .past-activities-box {
   position: relative;
