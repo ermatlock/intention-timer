@@ -50,6 +50,49 @@ body {
   box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.3);
   background-color: #46424D;
 }
+
+.select-a-category {
+position: relative;
+top: 5%;
+left: 7%;
+
+}
+
+.category-button {
+/*   display: flex;
+  justify-content: space-between; */
+  position: relative;
+  top: 15%;
+  left: -20%;
+  border-radius: 5px;
+  border-width: 2px;
+  color: #CBC9CF;
+  border-color: white;
+  height: 12%;
+  width: 20%;
+}
+
+ #study {
+  background:url(./assets/study.svg) no-repeat center;
+  background-size: 25%;
+  position: relative;
+  left: -19%;
+}
+
+#meditate {
+  background:url(./assets/meditate.svg) no-repeat center;
+  background-size: 25%;
+  position: relative;
+  left: -5%;
+}
+
+#exercise {
+  background:url(./assets/exercise.svg) no-repeat center;
+  background-size: 25%;
+  position: relative;
+  left: 10%;
+}
+
 .past-activities-box {
   position: relative;
   top: 0vh;
