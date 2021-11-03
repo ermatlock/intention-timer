@@ -9,13 +9,18 @@ Exercise: #FD8078
 Error: #EFB7EC */
 html {
   font-family: 'Montserrat', sans-serif;
+  height: 100%;
+  width: 100%;
+  margin: 0;
 }
 
 body {
   background-color: #46424D;
   color: #CBC9CF;
   margin: 0;
-
+  height: 100%;
+  width: 100%;
+  margin: 0;
 }
 
 .top-panel-text {
@@ -30,13 +35,16 @@ body {
 }
 
 .container {
-  display:flex
+  display:flex;
+  justify-content: space-between;
+
 }
 .new-activity-box {
-  width: 71vw;
-  height: 87vh;
+  display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 69.7%;
+  height: 90vh;
   border-right-color: #dcdbde;
   background-color: #2B2733;
 }
@@ -45,10 +53,10 @@ body {
   display: flex;
   flex-direction: column;
   margin: 3vh;
-  width: 108vh;
-  height: 60vh;
+  height: 63vh;
   font-size: 100%;
   padding: 5%;
+  padding-top: 3%;
   border-radius: 8px;
   box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.3);
   background-color: #46424D;
@@ -142,10 +150,16 @@ label {
 }
 
 .past-activities-box {
-  position: relative;
-  top: 0vh;
-  left: 0.4vw;
-  width: 32vw;
-  height: 87vh;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  height: 90vh;
   background-color: #2B2733;
+}
+
+.msg-box {
+  display: flex;
+  text-align: center;
+  align-content: center;
+  padding-left: 10vh;
 }
