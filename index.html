@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href='https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap' rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles.css">
   </head>
   <body>
-    <header class='top-banner'>
+    <header class="top-banner">
       <title>INTENTION TIMER</title>
-      <h1 class='intention-timer'>INTENTION TIMER</h1>
+      <h1 class="intention-timer">INTENTION TIMER</h1>
     </header>
-    <div class='container'>
-      <div class='new-activity-box'>New Activity
-        <card class='category-box'>
+    <div class="container">
+      <div class="new-activity-box">
+        <h3 class="top-panel-text">New Activity</h3>
+        <card class="category-box">
         <h3 class="select-a-category">Select a Category:</h3>
         <div class="activity-buttons">
           <button class="category-button" id="study">
             <img src="./assets/study.svg" class="button-images"/>
             Study
           </button>
-          <button class="category-button" id="meditate">Meditate</button>
-          <button class="category-button" id="exercise">Exercise</button>
+          <button class="category-button" id="meditate">
+            <img src="./assets/meditate.svg" class="button-images"/>
+            Meditate
+          </button>
+          <button class="category-button" id="exercise">
+            <img src="./assets/exercise.svg" class="button-images"/>
+            Exercise
+          </button>
         </div>
           <form>
           <div id="desired-task">
@@ -36,11 +43,14 @@
               <input class="user-seconds" type="text" id="user-seconds"/>
             </div>
           </div>
-            <button class="start-activity">START ACTIVITY</button>
+          <div class="start-activity">
+            <button class="start-button">START ACTIVITY</button>
+          </div>
           </form>
         </card>
       </div>
-      <div class='past-activities-box'>Past Activities
+      <div class='past-activities-box'>
+        <h3 class="top-panel-text">Past Activities</h3>
       </div>
     </div>
   </body>
