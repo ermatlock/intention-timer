@@ -163,3 +163,53 @@ label {
   align-content: center;
   padding-left: 10vh;
 }
+
+
+#meditate {
+  display: flex;
+  border-radius: 5px;
+  border-width: 2px;
+  background-color: transparent;
+  color: #C278FD;
+  border-color: #C278FD;
+  border-style: solid;
+  height: 5vw;
+  width: 14vw;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 2vh;
+}
+
+#study {
+  display: flex;
+  border-radius: 5px;
+  border-width: 2px;
+  background-color: transparent;
+  color: #B3Fd78;
+  border-color: #B3Fd78;
+  border-style: solid;
+  height: 5vw;
+  width: 14vw;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 2vh;
+  /* fill: #B3Fd78; */
+}
+
+#exercise {
+  display: flex;
+  border-radius: 5px;
+  border-width: 2px;
+  background-color: transparent;
+  color: #FD8078;
+  border-color: #FD8078;
+  border-style: solid;
+  height: 5vw;
+  width: 14vw;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 2vh;
+}
