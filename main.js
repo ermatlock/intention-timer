@@ -28,7 +28,7 @@ function hide(element) {
   element.classList.add("hidden");
 };
 function toggle(element) {
-  element.toggle("hidden");
+  element.toggleAttribute("hidden");
 };
 function activateStudy() {
   hide(studyButton);
@@ -58,18 +58,17 @@ function deactivateExercise(element) {
 function beginTimer() {
 
 };
-function checkForNumber() {
-  if (typeof value !== number) {
+function checkForNumber(value) {
+  var inputValue = parseInt(value);
+  if (typeof inputValue !== number) {
     show(errorNotNumber);
   } else {
     hide(errorNotNumber);
   }
 };
 function checkForCompleteForm() {
-  if (userTask && userMinutes && userSeconds === false) {
+  if (!userTask && !userMinutes && !userSeconds) {
    show(errorNotComplete);
- } else {
-   hide(errorNotComplete);
  }
 };
 
