@@ -10,7 +10,7 @@
       <h1 class="intention-timer">INTENTION TIMER</h1>
     </header>
     <div class="container">
-      <div class="new-activity-box">
+      <div class="new-activity-box hidden">
         <h3 class="top-panel-text">New Activity</h3>
         <card class="category-box">
         <h3 class="select-a-category">Select a Category:</h3>
@@ -45,7 +45,7 @@
             <label for="desired-task">What would you like to accomplish during this time?</label>
             <input class="user-task" type="text" id="user-task"/>
             <div>
-              <span class="error hide"><img class="error hide" src="./assets/warning.svg"/> A description is required.</span>
+              <span class="error-not-complete hide"><img class="error-not-complete" src="./assets/warning.svg"/> A description is required.</span>
             </div>
           </div>
           <div id="time-inputs">
@@ -59,13 +59,23 @@
             </div>
           </div>
           <span class="error-time">
-            <span class="error hide"><img class="error hide" src="./assets/warning.svg"/> A number is required.</span>
-            <span class="error-2 hide"><img class="error hide" src="./assets/warning.svg"/> A number is required.</span>
+            <span class="error-1 hide"><img class="error-1" src="./assets/warning.svg"/> A number is required.</span>
+            <span class="error-2 hide"><img class="error-2" src="./assets/warning.svg"/> A number is required.</span>
           </span>
           <div class="start-activity">
             <button class="start-button">START ACTIVITY</button>
           </div>
           </form>
+        </card>
+      </div>
+      <div class="new-activity-box">
+        <h3 class="top-panel-text">Current Activity</h3>
+        <card class="category-box timer-box">
+          <h3 class="user-activity-input">jghdhgjdhfsdk</h3>
+          <timer class="countdown-timer">5:00
+          </timer>
+          <button class="start-timer-button">START
+          </button>
         </card>
       </div>
       <div class="past-activities-box">
