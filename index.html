@@ -44,6 +44,9 @@
           <div id="desired-task">
             <label for="desired-task">What would you like to accomplish during this time?</label>
             <input class="user-task" type="text" id="user-task"/>
+            <div>
+              <span class="error hide"><img class="error hide" src="./assets/warning.svg"/> A description is required.</span>
+            </div>
           </div>
           <div id="time-inputs">
             <div class="minutes-seconds">
@@ -55,6 +58,10 @@
               <input class="user-seconds" type="text" id="user-seconds"/>
             </div>
           </div>
+          <span class="error-time">
+            <span class="error hide"><img class="error hide" src="./assets/warning.svg"/> A number is required.</span>
+            <span class="error-2 hide"><img class="error hide" src="./assets/warning.svg"/> A number is required.</span>
+          </span>
           <div class="start-activity">
             <button class="start-button">START ACTIVITY</button>
           </div>
