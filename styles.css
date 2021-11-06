@@ -96,7 +96,14 @@ label {
 }
 .user-task {
 }
-.error {
+.error-not-complete {
+  font-weight: bold;
+  margin-top: 1%;
+  color: #c197c1;
+  height: 2vh;
+}
+
+.error-1 {
   font-weight: bold;
   margin-top: 1%;
   color: #c197c1;
@@ -203,6 +210,6 @@ label {
 .hidden {
   display: none;
 }
-/* .hide {
+.hide {
   visibility: hidden;
-} */
+}

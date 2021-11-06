@@ -10,7 +10,9 @@ var userMinutes = document.querySelector(".user-minutes");
 var userSeconds = document.querySelector(".user-seconds");
 var startButton = document.querySelector(".start-button")
 var errorNotComplete = document.querySelector(".error-not-complete")
-var errorNotNumber = document.querySelector(".error-not-number")
+var errorNotNumber1 = document.querySelector(".error-1")
+var errorNotNumber2 = document.querySelector(".error-2")
+
 
 // event listeners
 studyButton.addEventListener("click", activateStudy);
@@ -21,60 +23,89 @@ exerciseButton.addEventListener("click", activateExercise);
 exerciseButtonActive.addEventListener("click", deactivateExercise);
 startButton.addEventListener("click", beginTimer);
 // functions
-function show(element) {
+function showDisplay(element) {
   element.classList.remove("hidden");
 };
-function hide(element) {
+function hideDisplay(element) {
   element.classList.add("hidden");
 };
+function hideVisibility(element) {
+  element.classList.add("hide");
+}
+function showVisibility(element) {
+  element.classList.remove("hide");
+}
 function toggle(element) {
   element.toggleAttribute("hidden");
 };
-function activateStudy() {
-  hide(studyButton);
-  show(studyButtonActive);
+
+
+function activateStudy(element) {
+  hideDisplay(studyButton);
+  showDisplay(studyButtonActive);
+  hideDisplay(meditateButtonActive)
+  showDisplay(meditateButton)
+  hideDisplay(exerciseButtonActive)
+  showDisplay(exerciseButton)
 };
-function deactivateStudy(element) {
-  show(studyButton);
-  hide(studyButtonActive);
-};
+
 function activateMeditate(element) {
-  hide(meditateButton);
-  show(meditateButtonActive);
+  hideDisplay(meditateButton);
+  showDisplay(meditateButtonActive);
+  hideDisplay(studyButtonActive)
+  showDisplay(studyButton)
+  hideDisplay(exerciseButtonActive)
+  showDisplay(exerciseButton)
 };
-function deactivateMeditate(element) {
-  show(meditateButton);
-  hide(meditateButtonActive);
-};
+
 function activateExercise(element) {
-  hide(exerciseButton);
-  show(exerciseButtonActive);
+  hideDisplay(exerciseButton);
+  showDisplay(exerciseButtonActive);
+  hideDisplay(studyButtonActive)
+  showDisplay(studyButton)
+  hideDisplay(meditateButtonActive)
+  showDisplay(meditateButton)
 };
+
+function deactivateStudy(element) {
+  showDisplay(studyButton);
+  hideDisplay(studyButtonActive);
+};
+
+function deactivateMeditate(element) {
+  showDisplay(meditateButton);
+  hideDisplay(meditateButtonActive);
+};
+
 function deactivateExercise(element) {
-  show(exerciseButton);
-  hide(exerciseButtonActive);
+  showDisplay(exerciseButton);
+  hideDisplay(exerciseButtonActive);
 };
 
-function beginTimer() {
-
+function beginTimer(value) {
+  event.preventDefault();
+  checkForNumber(value);
+  checkForCompleteForm(value);
 };
+
 function checkForNumber(value) {
-  var inputValue = parseInt(value);
-  if (typeof inputValue !== number) {
-    show(errorNotNumber);
-  } else {
-    hide(errorNotNumber);
+  var minutesValue = parseInt(userMinutes.value);
+  var secondsValue = parseInt(userSeconds.value)
+
+  if (isNaN(minutesValue)) {
+    showVisibility(errorNotNumber1);
+  }
+  if (isNaN(secondsValue)) {
+    showVisibility(errorNotNumber2);
   }
 };
-function checkForCompleteForm() {
-  if (!userTask && !userMinutes && !userSeconds) {
-   show(errorNotComplete);
+
+function checkForCompleteForm(value) {
+  if (!userTask.value) {
+   showVisibility(errorNotComplete);
+ } else if (!userMinutes.value) {
+   showVisibility(errorNotNumber1);
+ } else if (!userSeconds.value) {
+   showVisibility(errorNotNumber2)
  }
 };
-
-// goal: togggle from active to inactive
-// only one button can be active at a time
-// event listener for click, invoke toggle for button
-// check to see if other buttons activate
-// if other button activated, disable activation on clicked button
-//
