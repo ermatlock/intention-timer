@@ -207,6 +207,38 @@ label {
   justify-content: space-around;
   font-size: 2vh;
 }
+
+.timer-box {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.user-activity-input {
+  padding-top: 1vh;
+  font-weight: 300;
+}
+
+.countdown-timer {
+  font-size: 9vh;
+  font-weight: bold;
+  margin-top: -3vh;
+  font-family: arial;
+  color: #fff;
+}
+
+.start-timer-button {
+  width: 28vh;
+  height: 28vh;
+  border-radius: 298px;
+  border-style: solid;
+  margin-top: 30px;
+  background: transparent;
+  color: white;
+  border-color: purple;
+  font-size: 2vh;
+}
+
 .hidden {
   display: none;
 }

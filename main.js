@@ -1,3 +1,5 @@
+var activity = require('.Activity.js');
+
 // querySelectors
 var studyButton = document.querySelector(".study");
 var studyButtonActive = document.querySelector(".study-active");
@@ -86,6 +88,9 @@ function beginTimer(value) {
   event.preventDefault();
   checkForNumber(value);
   checkForCompleteForm(value);
+  if (checkForNumber() === true && checkForCompleteForm() === true) {
+
+  }
 };
 
 function checkForNumber(value) {
@@ -107,5 +112,7 @@ function checkForCompleteForm(value) {
    showVisibility(errorNotNumber1);
  } else if (!userSeconds.value) {
    showVisibility(errorNotNumber2)
+ } else {
+
  }
 };
