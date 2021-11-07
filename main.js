@@ -1,4 +1,5 @@
-// var activity = require('.Activity.js');
+
+
 
 // querySelectors
 var studyButton = document.querySelector(".study");
@@ -10,13 +11,21 @@ var exerciseButtonActive = document.querySelector(".exercise-active");
 var userTask = document.querySelector(".user-task");
 var userMinutes = document.querySelector(".user-minutes");
 var userSeconds = document.querySelector(".user-seconds");
-var startButton = document.querySelector(".start-button")
-var errorNotComplete = document.querySelector(".error-not-complete")
-var errorNotNumber1 = document.querySelector(".error-1")
-var errorNotNumber2 = document.querySelector(".error-2")
-var countdownTimer = document.querySelector(".countdown-timer")
-var newActivityBox = document.querySelector(".new-activity-box")
-var currentActivityBox = document.querySelector(".current-activity-box")
+var startButton = document.querySelector(".start-button");
+var errorNotComplete = document.querySelector(".error-not-complete");
+var errorNotNumber1 = document.querySelector(".error-1");
+var errorNotNumber2 = document.querySelector(".error-2");
+var countdownTimer = document.querySelector(".countdown-timer");
+var newActivityBox = document.querySelector(".new-activity-box");
+var currentActivityBox = document.querySelector(".current-activity-box");
+var startTimerButton = document.querySelector(".start-timer-button");
+var userActivityInput = document.querySelector(".user-activity-input");
+var coundownTimer = document.querySelector(".countdown-timer");
+
+
+
+
+
 // event listeners
 studyButton.addEventListener("click", activateStudy);
 studyButtonActive.addEventListener("click", deactivateStudy);
@@ -24,7 +33,8 @@ meditateButton.addEventListener("click", activateMeditate);
 meditateButtonActive.addEventListener("click", deactivateMeditate);
 exerciseButton.addEventListener("click", activateExercise);
 exerciseButtonActive.addEventListener("click", deactivateExercise);
-startButton.addEventListener("click", beginTimer);
+startButton.addEventListener("click", startActivity);
+// categoryButtons.addEventListener("click", checkButtons);
 
 // functions
 function showDisplay(element) {
@@ -39,10 +49,6 @@ function hideVisibility(element) {
 function showVisibility(element) {
   element.classList.remove("hide");
 }
-function toggle(element) {
-  element.toggleAttribute("hidden");
-};
-
 
 function activateStudy(element) {
   hideDisplay(studyButton);
@@ -51,6 +57,8 @@ function activateStudy(element) {
   showDisplay(meditateButton)
   hideDisplay(exerciseButtonActive)
   showDisplay(exerciseButton)
+  selected = "study";
+  // console.log(selected);
 };
 
 function activateMeditate(element) {
@@ -60,6 +68,8 @@ function activateMeditate(element) {
   showDisplay(studyButton)
   hideDisplay(exerciseButtonActive)
   showDisplay(exerciseButton)
+  selected = "meditate";
+  // console.log(selected);
 };
 
 function activateExercise(element) {
@@ -69,59 +79,111 @@ function activateExercise(element) {
   showDisplay(studyButton)
   hideDisplay(meditateButtonActive)
   showDisplay(meditateButton)
+  selected = "exercise";
+  // console.log(selected);
 };
 
 function deactivateStudy(element) {
   showDisplay(studyButton);
   hideDisplay(studyButtonActive);
+  selected = "none"
+  // console.log(selected);
 };
 
 function deactivateMeditate(element) {
   showDisplay(meditateButton);
   hideDisplay(meditateButtonActive);
+  selected = "none"
+  // console.log(selected);
 };
 
 function deactivateExercise(element) {
   showDisplay(exerciseButton);
   hideDisplay(exerciseButtonActive);
+  selected = "none"
+  // console.log(selected);
 };
 
-function beginTimer(value) {
+function startActivity(value) {
   event.preventDefault();
-  var numCheck = checkForNumber(value);
-  var formCheck = checkForCompleteForm(value);
-  console.log('check for number')
-  if (numCheck && formCheck)
-  {
-    showDisplay(currentActivityBox);
-    hideDisplay(newActivityBox);
+  hideVisibility(errorNotComplete);
+  hideVisibility(errorNotNumber1);
+  hideVisibility(errorNotNumber2);
+  checkForCompleteForm();
+};
+
+function checkForCompleteForm(value) {
+  if (!userTask.value) {
+   showVisibility(errorNotComplete);
   }
+  if (!userMinutes.value) {
+   showVisibility(errorNotNumber1);
+  }
+  if (!userSeconds.value) {
+   showVisibility(errorNotNumber2);
+  } else {
+   checkForNumber();
+ }
 };
 
 function checkForNumber(value) {
+  // event.preventDefault();
   var minutesValue = parseInt(userMinutes.value);
-  console.log('check for number spot')
-  var secondsValue = parseInt(userSeconds.value)
+  var secondsValue = parseInt(userSeconds.value);
   if (isNaN(minutesValue)) {
     showVisibility(errorNotNumber1);
   }
   if (isNaN(secondsValue)) {
     showVisibility(errorNotNumber2);
   }
+  categoryAlert();
+
 };
 
-function checkForCompleteForm(value) {
-  if (!userTask.value) {
-   showVisibility(errorNotComplete);
- } else if (!userMinutes.value) {
-   showVisibility(errorNotNumber1);
- } else if (!userSeconds.value) {
-   showVisibility(errorNotNumber2)
- } else {
-   return
- }
-};
+function categoryAlert() {
+  if (selected === "none") {
+    window.alert("Please select a category");
+  } else {
+    gatherData();
+  }
 
+}
+
+function gatherData(category, description, minutes, seconds) {
+  var category = selected;
+  var description = userTask.value;
+  var minutes = userMinutes.value;
+  var seconds = userSeconds.value;
+  var newActivity = new Activity(category, description, minutes, seconds);
+  activity.push(newActivity);
+  console.log(newActivity);
+  changeColor();
+  // goToTimer();
+}
+
+function changeColor() {
+  if (selected === "study") {
+    document.querySelector(".start-timer-button").style.borderColor = "#B3FD78";
+    goToTimer();
+  }
+  if (selected === "meditate") {
+    document.querySelector(".start-timer-button").style.borderColor = "#C278FD";
+    goToTimer();
+  }
+  if (selected === "exercise") {
+    document.querySelector(".start-timer-button").style.borderColor = "#FD8078";
+    goToTimer();
+  }
+}
+
+function goToTimer(description, minutes, seconds) {
+  hideDisplay(newActivityBox);
+  showDisplay(currentActivityBox);
+  userActivityInput.innerText = activity[0].description;
+  coundownTimer.innerText = `${activity[0].minutes}:${activity[0].seconds}`;
+  console.log(newActivity[0].minutes);
+
+}
 
 
 ///practice clock
