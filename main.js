@@ -34,6 +34,7 @@ meditateButtonActive.addEventListener("click", deactivateMeditate);
 exerciseButton.addEventListener("click", activateExercise);
 exerciseButtonActive.addEventListener("click", deactivateExercise);
 startButton.addEventListener("click", startActivity);
+//startTimerButton.addEventListener("click", timer);
 // categoryButtons.addEventListener("click", checkButtons);
 
 // functions
@@ -145,9 +146,9 @@ function categoryAlert() {
     window.alert("Please select a category");
   } else {
     gatherData();
-  }
+  };
 
-}
+};
 
 function gatherData(category, description, minutes, seconds) {
   var category = selected;
@@ -159,31 +160,60 @@ function gatherData(category, description, minutes, seconds) {
   console.log(newActivity);
   changeColor();
   // goToTimer();
-}
+};
 
 function changeColor() {
   if (selected === "study") {
     document.querySelector(".start-timer-button").style.borderColor = "#B3FD78";
     goToTimer();
-  }
+  };
   if (selected === "meditate") {
     document.querySelector(".start-timer-button").style.borderColor = "#C278FD";
     goToTimer();
-  }
+  };
   if (selected === "exercise") {
     document.querySelector(".start-timer-button").style.borderColor = "#FD8078";
     goToTimer();
-  }
-}
+
+  };
+};
 
 function goToTimer(description, minutes, seconds) {
   hideDisplay(newActivityBox);
   showDisplay(currentActivityBox);
+  timerFormat();
   userActivityInput.innerText = activity[0].description;
   coundownTimer.innerText = `${activity[0].minutes}:${activity[0].seconds}`;
   console.log(newActivity[0].minutes);
 
-}
+};
+
+function timerFormat() {
+  if (activity[0].minutes < 10) {
+    activity[0].minutes = `0${activity[0].minutes}`
+  };
+  if (activity[0].seconds < 10) {
+    activity[0].seconds = `0${activity[0].seconds}`
+  };
+};
+
+// function timer () {
+// var mins = activity[0].minutes
+// var sec = activity[0].seconds
+//   if (mins === "minutes") {
+//     mins = mins * 60000;
+//   } else if (sec === "seconds") {
+//     sec = sec * 1000;
+//   }
+//
+//   var now = Date.now();
+//   endTime = now + (mins + sec);
+// timer(endTime);
+// interval = setInterval(() => {
+//   timer(endTime);
+// }, 1000);
+// }
+
 
 
 ///practice clock
