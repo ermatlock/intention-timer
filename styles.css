@@ -44,6 +44,17 @@ body {
   border-right-color: #DCDBDE;
   background-color: #2B2733;
 }
+
+.current-activity-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 69.7%;
+  height: 90vh;
+  border-right-color: #DCDBDE;
+  background-color: #2B2733;
+}
+
 .category-box {
   display: flex;
   flex-direction: column;
