@@ -1,11 +1,11 @@
 class Activity{
-  constructor(activity) {
+  constructor(category, description, minutes, seconds) {
     this.category = category;
     this.description = description;
     this.minutes = minutes;
     this.seconds = seconds;
     this.isCompleted = false;
-    this.id = id;
+    // this.id = id;
   }
   countdown() {
   }
@@ -14,3 +14,7 @@ class Activity{
   saveToStorage() {
   }
 };
+var activity = [];
+var selected = "none";
+var invalidCharacters = ["e", "+", "-"];
+module.exports = Activity;
