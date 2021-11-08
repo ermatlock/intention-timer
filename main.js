@@ -20,9 +20,9 @@ var newActivityBox = document.querySelector(".new-activity-box");
 var currentActivityBox = document.querySelector(".current-activity-box");
 var startTimerButton = document.querySelector(".start-timer-button");
 var userActivityInput = document.querySelector(".user-activity-input");
-var coundownTimer = document.querySelector(".countdown-timer");
 
 
+var activity = [];
 
 
 
@@ -34,7 +34,7 @@ meditateButtonActive.addEventListener("click", deactivateMeditate);
 exerciseButton.addEventListener("click", activateExercise);
 exerciseButtonActive.addEventListener("click", deactivateExercise);
 startButton.addEventListener("click", startActivity);
-//startTimerButton.addEventListener("click", timer);
+startTimerButton.addEventListener("click", activity[0].countdown());
 // categoryButtons.addEventListener("click", checkButtons);
 
 // functions
@@ -183,9 +183,9 @@ function goToTimer(description, minutes, seconds) {
   showDisplay(currentActivityBox);
   timerFormat();
   userActivityInput.innerText = activity[0].description;
-  coundownTimer.innerText = `${activity[0].minutes}:${activity[0].seconds}`;
-  console.log(newActivity[0].minutes);
-
+  countdownTimer.innerText = `${activity[0].minutes}:${activity[0].seconds}`;
+  //console.log(newActivity[0].minutes);
+//  setInterval();
 };
 
 function timerFormat() {
@@ -196,6 +196,32 @@ function timerFormat() {
     activity[0].seconds = `0${activity[0].seconds}`
   };
 };
+
+//var startingMinutes = 5;
+//var time = startingMinutes * 60;
+//
+// var countdownEl = document.getElementById('countdown');
+
+// function timeMath() {
+// }
+
+
+
+
+
+
+// setInterval(updateCountdown(mins, secs), 1000);
+
+// function updateCountdown(mins, secs) {
+//   var mins = Math.floor(time / 60);
+//   var secs = time % 60;
+//     countdownTimer.innerHTML = `${mins}:${secs}`;
+//
+//       time--;
+//
+// }
+
+
 
 // function timer () {
 // var mins = activity[0].minutes
