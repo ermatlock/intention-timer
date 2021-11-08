@@ -7,12 +7,15 @@ Study: #B3FD78
 Meditate: #C278FD
 Exercise: #FD8078
 Error: #EFB7EC */
+
+/* ~~~~~~~~~~~~BODY~~~~~~~~~~~~ */
 html {
   font-family: "Montserrat", sans-serif;
   height: 100%;
   width: 100%;
   margin: 0;
 }
+
 body {
   background-color: #46424D;
   color: #CBC9CF;
@@ -21,31 +24,27 @@ body {
   width: 100%;
   margin: 0;
 }
+
+header {
+  color: #fff;
+  text-align: center;
+  background-color: #46424D;
+  padding: .3vh;
+}
+
 .top-panel-text {
   font-size: 3vh;
   font-weight: normal;
   padding-left: 5vh;
 }
-.top-banner {
-  text-align: center;
-  background-color: #46424D;
-  padding: .3vh;
-}
+
 .container {
   display:flex;
   justify-content: space-between;
 }
-.new-activity-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 69.7%;
-  height: 90vh;
-  border-right-color: #DCDBDE;
-  background-color: #2B2733;
-}
 
-.current-activity-box{
+.new-activity-box,
+.current-activity-box {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -57,7 +56,6 @@ body {
 
 .category-box {
   display: flex;
-  flex-direction: column;
   margin: 3vh;
   height: 63vh;
   font-size: 100%;
@@ -66,15 +64,59 @@ body {
   border-radius: 8px;
   box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.3);
   background-color: #46424D;
+  justify-content: center;
+  flex-direction: column;
 }
+
 .select-a-category {
   font-size: 2.5vh;
   font-weight: bold;
 }
+
+.start-activity-box {
+  display: flex;
+  justify-content: flex-end;
+  align-content: flex-end;
+  margin-top: 5vh;
+}
+
+.past-activities-box {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  height: 90vh;
+  background-color: #2B2733;
+  align-content: center;
+}
+
+.msg-box {
+  display: flex;
+  text-align: center;
+  align-content: center;
+  justify-content: center;
+}
+
+
+.timer-box {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.countdown-timer {
+  font-size: 9vh;
+  font-weight: bold;
+  margin-top: -3vh;
+  font-family: arial;
+  color: #fff;
+}
+
+/* ~~~~~~~~~~~~BUTTONS~~~~~~~~~~~~ */
 .activity-buttons {
   display: flex;
   justify-content: space-between;
 }
+
 .category-button {
   display: flex;
   border-radius: 5px;
@@ -90,68 +132,26 @@ body {
   justify-content: space-around;
   font-size: 2vh;
 }
+
+.meditate-active {
+  color: #C278FD;
+  border-color: #C278FD;
+}
+
+.study-active {
+  color: #B3FD78;
+  border-color: #B3FD78;
+}
+
+.exercise-active {
+  color: #FD8078;
+  border-color: #FD8078;
+}
+
 .button-images {
   width: 13%;
 }
-form {
-}
-input {
-  font-size: 4vh;
-  border: none;
-  border-bottom: 2px solid white;
-  background-color: transparent;
-}
-label {
-  font-size: 2.5vh;
-  font-weight: bold;
-}
-.user-task {
-}
-.error-not-complete {
-  font-weight: bold;
-  margin-top: 1%;
-  color: #c197c1;
-  height: 2vh;
-}
 
-.error-1 {
-  font-weight: bold;
-  margin-top: 1%;
-  color: #c197c1;
-  height: 2vh;
-}
-.error-2 {
-  padding-right: 19.5%;
-  font-weight: bold;
-  margin-top: 1%;
-  color: #c197c1;
-  height: 2vh;
-}
-.error-time {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-#desired-task {
-  display: flex;
-  flex-direction: column;
-  margin-top: 11vh;
-}
-#time-inputs {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 4vh;
-}
-.minutes-seconds {
-  display: flex;
-  flex-direction: column;
-}
-.start-activity {
-  display: flex;
-  justify-content: flex-end;
-  align-content: flex-end;
-  margin-top: 5vh;
-}
 .start-button {
   font-size: 2.5vh;
   padding: 1vh;
@@ -159,70 +159,28 @@ label {
   border-radius: 4px;
   border-width: 0;
 }
-.past-activities-box {
-  display: flex;
-  flex-direction: column;
-  width: 30%;
-  height: 90vh;
-  background-color: #2B2733;
-}
-.msg-box {
-  display: flex;
-  text-align: center;
-  align-content: center;
-  padding-left: 10vh;
-}
-.meditate-active {
-  display: flex;
-  border-radius: 5px;
-  border-width: 2px;
-  background-color: transparent;
-  color: #C278FD;
+
+.start-timer-button {
+  width: 28vh;
+  height: 28vh;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 3px;
+  margin-top: 6vh;
+  background: transparent;
+  color: white;
   border-color: #C278FD;
-  border-style: solid;
-  height: 5vw;
-  width: 14vw;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  font-size: 2vh;
-}
-.study-active {
-  display: flex;
-  border-radius: 5px;
-  border-width: 2px;
-  background-color: transparent;
-  color: #B3FD78;
-  border-color: #B3FD78;
-  border-style: solid;
-  height: 5vw;
-  width: 14vw;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  font-size: 2vh;
-  fill: #B3FD78;
- }
-.exercise-active {
-  display: flex;
-  border-radius: 5px;
-  border-width: 2px;
-  background-color: transparent;
-  color: #FD8078;
-  border-color: #FD8078;
-  border-style: solid;
-  height: 5vw;
-  width: 14vw;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
   font-size: 2vh;
 }
 
-.timer-box {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+/* ~~~~~~~~~~~~~FORM~~~~~~~~~~~~~~~~ */
+input {
+  color: white !important;
+  font-size: 2.5vh;
+  border: none;
+  border-bottom: 2px solid white;
+  background-color: transparent !important;
+  margin-top: 1vh;
 }
 
 .user-activity-input {
@@ -230,29 +188,62 @@ label {
   font-weight: 300;
 }
 
-.countdown-timer {
-  font-size: 9vh;
-  font-weight: bold;
-  margin-top: -3vh;
-  font-family: arial;
-  color: #fff;
+.desired-task {
+  display: flex;
+  flex-direction: column;
+  margin-top: 11vh;
 }
 
-.start-timer-button {
-  width: 28vh;
-  height: 28vh;
-  border-radius: 298px;
-  border-style: solid;
-  margin-top: 30px;
-  background: transparent;
-  color: white;
-  border-color: #C278FD;
-  font-size: 2vh;
+.time-inputs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 4vh;
 }
+
+.minutes-seconds {
+  display: flex;
+  flex-direction: column;
+  width: 23vw;
+}
+
+label {
+  font-size: 2.5vh;
+  font-weight: bold;
+}
+
+.error-not-complete,
+.error-1 {
+  font-weight: bold;
+  margin-top: 1%;
+  color: #c197c1;
+  height: 2vh;
+}
+
+.error-2 {
+  margin-right: 8vw;
+  font-weight: bold;
+  margin-top: 1%;
+  color: #c197c1;
+  height: 2vh;
+}
+
+.error-time {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.svg-only {
+  margin-right: 0;
+}
+
+/* ~~~~~~~~~~~~~~~DISPLAY~~~~~~~~~~~~~~~ */
 
 .hidden {
   display: none;
 }
+
 .hide {
   visibility: hidden;
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
   <head>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles.css">
@@ -11,83 +11,79 @@
     </header>
     <div class="container">
       <div class="new-activity-box">
-        <h3 class="top-panel-text">New Activity</h3>
+        <h2 class="top-panel-text">New Activity</h2>
         <card class="category-box">
-        <h3 class="select-a-category">Select a Category:</h3>
-        <div class="activity-buttons">
-          <button class="category-button study">
-            <img src="./assets/study.svg" class="button-images" id="study"/>
-            Study
-          </button>
-          <button class="category-button study-active hidden" >
-            <img src="./assets/study-active.svg" class="button-images" id="study-on"/>
-            Study
-          </button>
-          <button class="category-button meditate " id="meditate">
-            <img src="./assets/meditate.svg" class="button-images"/>
-            Meditate
-          </button>
-          <button class="category-button meditate-active hidden" id="meditate">
-            <img src="./assets/meditate-active.svg" class="button-images" id="meditate-on"/>
-            Meditate
-          </button>
-          <button class="category-button exercise " id="exercise">
-            <img src="./assets/exercise.svg" class="button-images"/>
-            Exercise
-          </button>
-          <button class="category-button exercise-active hidden" id="exercise">
-            <img src="./assets/exercise-active.svg" class="button-images" id="exercise-on"/>
-            Exercise
-          </button>
-        </div>
+          <h3 class="select-a-category">Select a Category:</h3>
+          <section class="activity-buttons">
+            <button class="category-button study">
+              <img src="./assets/study.svg" class="button-images" alt="white light bulb icon">Study
+            </button>
+            <button class="category-button study-active hidden" >
+              <img src="./assets/study-active.svg" class="button-images" alt="green light bulb icon">Study
+            </button>
+            <button class="category-button meditate">
+              <img src="./assets/meditate.svg" class="button-images" alt="white lotus icon">Meditate
+            </button>
+            <button class="category-button meditate-active hidden">
+              <img src="./assets/meditate-active.svg" class="button-images" alt="purple lotus icon">Meditate
+            </button>
+            <button class="category-button exercise ">
+              <img src="./assets/exercise.svg" class="button-images" alt="white sneaker icon">Exercise
+            </button>
+            <button class="category-button exercise-active hidden">
+              <img src="./assets/exercise-active.svg" class="button-images" alt="red sneaker icon">Exercise
+            </button>
+          </section>
           <form>
-          <div id="desired-task">
-            <label for="desired-task">What would you like to accomplish during this time?</label>
-            <input class="user-task" type="text" id="user-task"/>
-            <div>
-              <span class="error-not-complete hide"><img class="error-not-complete" src="./assets/warning.svg"/> A description is required.</span>
+            <section class="desired-task">
+              <label for="desired-task">What would you like to accomplish during this time?</label>
+              <input class="user-task" type="text"/>
+              <div>
+                <span class="error-not-complete hide"><img class="error-not-complete" src="./assets/warning.svg" alt="warning sign"/> A description is required.</span>
+              </div>
+            </section>
+            <section class="time-inputs">
+              <div class="minutes-seconds">
+                <label for="minutes">Minutes</label>
+                <input class="user-minutes" type="text"/>
+              </div>
+              <div class="minutes-seconds">
+                <label for="seconds">Seconds</label>
+                <input class="user-seconds" type="text"/>
+              </div>
+            </section>
+            <span class="error-time">
+              <span class="error-1 hide"><img class="error-1" src="./assets/warning.svg" alt="warning sign"/> A number is required.</span>
+              <span class="error-2 text-only hide"><img class="error-2 svg-only" src="./assets/warning.svg" alt="warning sign"/> A number is required.</span>
+            </span>
+            <div class="start-activity-box">
+              <button class="start-button">START ACTIVITY</button>
             </div>
-          </div>
-          <div id="time-inputs">
-            <div class="minutes-seconds">
-              <label for="minutes">Minutes</label>
-              <input class="user-minutes" type="text" id="user-minutes"/>
-            </div>
-            <div class="minutes-seconds">
-              <label for="seconds">Seconds</label>
-              <input class="user-seconds" type="text" id="user-seconds"/>
-            </div>
-          </div>
-          <span class="error-time">
-            <span class="error-1 hide"><img class="error-1" src="./assets/warning.svg"/> A number is required.</span>
-            <span class="error-2 hide"><img class="error-2" src="./assets/warning.svg"/> A number is required.</span>
-          </span>
-          <div class="start-activity">
-            <button class="start-button">START ACTIVITY</button>
-          </div>
           </form>
         </card>
       </div>
+
       <div class="current-activity-box hidden">
-        <h3 class="top-panel-text">Current Activity</h3>
+        <h2 class="top-panel-text">Current Activity</h2>
         <card class="category-box timer-box">
           <h3 class="user-activity-input"></h3>
           <timer class="countdown-timer"></timer>
-          <button class="start-timer-button">START
-          </button>
+          <button class="start-timer-button">START</button>
+          <button class="start-timer-button complete">COMPLETE!</button>
         </card>
       </div>
+
       <div class="past-activities-box">
-        <h3 class="top-panel-text">Past Activities</h3>
-        <div class="msg-box">
-          <div class="initial-msg">
-          You haven't logged any activities yet. <br />
-          Complete the form to the left to get started!
-          </div>
-        </div>
+        <h2 class="top-panel-text">Past Activities</h2>
+        <section class="msg-box">
+          <p class="initial-msg">You haven't logged any activities yet.<br>
+            Complete the form to the left to get started!
+          </p>
+        </section>
       </div>
+
     </div>
   </body>
-  <script src="./main.js"></script>
   <script src="./Activity.js"></script>
+  <script src="./main.js"></script>
 </html>
