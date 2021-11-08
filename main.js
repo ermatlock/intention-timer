@@ -33,6 +33,10 @@ exerciseButton.addEventListener("click", activateExercise);
 exerciseButtonActive.addEventListener("click", deactivateExercise);
 startButton.addEventListener("click", startActivity);
 startTimerButton.addEventListener("click", methTime);
+<<<<<<< HEAD
+=======
+// categoryButtons.addEventListener("click", checkButtons);
+>>>>>>> b151fdf623a8105cf3cf9823066257f347f51c73
 
 // functions
 function showDisplay(element) {
@@ -161,6 +165,9 @@ function gatherData(category, description, minutes, seconds) {
 function methTime() {
 activity[0].countdown()
 };
+function methTime() {
+activity[0].countdown()
+}
 
 function changeColor() {
   if (selected === "study") {
@@ -180,10 +187,32 @@ function changeColor() {
 function goToTimer(description, minutes, seconds) {
   hideDisplay(newActivityBox);
   showDisplay(currentActivityBox);
+<<<<<<< HEAD
   userActivityInput.innerText = padDigits(activity[0].description);
   countdownTimer.innerText = `${padDigits(activity[0].minutes)}:${padDigits(activity[0].seconds)}`;
+=======
+  timerFormat(activity[0].minutes, activity[0].seconds);
+  userActivityInput.innerText = activity[0].description;
+  countdownTimer.innerText = `${activity[0].minutes.padStart(2, "0")}:${activity[0].seconds.padStart(2, "0")}`;
+  //console.log(newActivity[0].minutes);
+//  setInterval();
+>>>>>>> b151fdf623a8105cf3cf9823066257f347f51c73
 };
+// function padThat(minutes, seconds) {
+//   return `${minutes.padStart(2, "0")}:${seconds.padStart(2, "0")}`;
+//
+// }
 
+<<<<<<< HEAD
 function markComplete() {
   window.alert("You completed your activity!");
+=======
+function timerFormat(minutes, seconds) {
+  if (minutes < 10) {
+    minutes = `0${minutes}`
+  };
+  if (seconds < 10) {
+    seconds = `0${seconds}`
+  };
+>>>>>>> b151fdf623a8105cf3cf9823066257f347f51c73
 };
