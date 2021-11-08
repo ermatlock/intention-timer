@@ -1,6 +1,3 @@
-
-
-
 // querySelectors
 var studyButton = document.querySelector(".study");
 var studyButtonActive = document.querySelector(".study-active");
@@ -23,7 +20,8 @@ var userActivityInput = document.querySelector(".user-activity-input");
 
 
 var activity = [];
-
+var selected = "none";
+var invalidCharacters = ["e", "E", ".", "+", "-", "=", "/", "%", "$", "n"];
 
 
 // event listeners
@@ -34,8 +32,10 @@ meditateButtonActive.addEventListener("click", deactivateMeditate);
 exerciseButton.addEventListener("click", activateExercise);
 exerciseButtonActive.addEventListener("click", deactivateExercise);
 startButton.addEventListener("click", startActivity);
-startTimerButton.addEventListener("click", methTime);
-// categoryButtons.addEventListener("click", checkButtons);
+startTimerButton.addEventListener("click", methodTime);
+userMinutes.addEventListener("keydown", preventKey);
+userSeconds.addEventListener("keydown", preventKey);
+
 
 // functions
 function showDisplay(element) {
@@ -46,10 +46,23 @@ function hideDisplay(element) {
 };
 function hideVisibility(element) {
   element.classList.add("hide");
-}
+};
 function showVisibility(element) {
   element.classList.remove("hide");
-}
+};
+
+function padDigits(n) {
+  if (n < 10) {
+    return "0" + n;
+  }
+  else {
+    return n;
+  }
+};
+
+function methodTime() {
+activity[0].countdown()
+};
 
 function activateStudy(element) {
   hideDisplay(studyButton);
@@ -59,7 +72,6 @@ function activateStudy(element) {
   hideDisplay(exerciseButtonActive)
   showDisplay(exerciseButton)
   selected = "study";
-  // console.log(selected);
 };
 
 function activateMeditate(element) {
@@ -70,7 +82,6 @@ function activateMeditate(element) {
   hideDisplay(exerciseButtonActive)
   showDisplay(exerciseButton)
   selected = "meditate";
-  // console.log(selected);
 };
 
 function activateExercise(element) {
@@ -81,28 +92,24 @@ function activateExercise(element) {
   hideDisplay(meditateButtonActive)
   showDisplay(meditateButton)
   selected = "exercise";
-  // console.log(selected);
 };
 
 function deactivateStudy(element) {
   showDisplay(studyButton);
   hideDisplay(studyButtonActive);
   selected = "none"
-  // console.log(selected);
 };
 
 function deactivateMeditate(element) {
   showDisplay(meditateButton);
   hideDisplay(meditateButtonActive);
   selected = "none"
-  // console.log(selected);
 };
 
 function deactivateExercise(element) {
   showDisplay(exerciseButton);
   hideDisplay(exerciseButtonActive);
   selected = "none"
-  // console.log(selected);
 };
 
 function startActivity(value) {
@@ -123,23 +130,34 @@ function checkForCompleteForm(value) {
   if (!userSeconds.value) {
    showVisibility(errorNotNumber2);
   } else {
-   checkForNumber();
+   checkForNumber1();
+   checkForNumber2();
  }
 };
 
-function checkForNumber(value) {
-  // event.preventDefault();
+function checkForNumber1(value) {
   var minutesValue = parseInt(userMinutes.value);
-  var secondsValue = parseInt(userSeconds.value);
   if (isNaN(minutesValue)) {
     showVisibility(errorNotNumber1);
-  }
-  if (isNaN(secondsValue)) {
-    showVisibility(errorNotNumber2);
+    return;
   }
   categoryAlert();
-
 };
+
+function checkForNumber2(value) {
+  var secondsValue = parseInt(userSeconds.value);
+  if (isNaN(secondsValue)) {
+    showVisibility(errorNotNumber2);
+    return;
+  }
+  categoryAlert();
+};
+
+function preventKey() {
+if(invalidCharacters.includes(event.key)) {
+    event.preventDefault();
+  }
+}
 
 function categoryAlert() {
   if (selected === "none") {
@@ -147,7 +165,6 @@ function categoryAlert() {
   } else {
     gatherData();
   };
-
 };
 
 function gatherData(category, description, minutes, seconds) {
@@ -159,11 +176,7 @@ function gatherData(category, description, minutes, seconds) {
   activity.push(newActivity);
   console.log(activity);
   changeColor();
-  // goToTimer();
 };
-function methTime() {
-activity[0].countdown()
-}
 
 function changeColor() {
   if (selected === "study") {
@@ -177,98 +190,17 @@ function changeColor() {
   if (selected === "exercise") {
     document.querySelector(".start-timer-button").style.borderColor = "#FD8078";
     goToTimer();
-
   };
 };
 
 function goToTimer(description, minutes, seconds) {
   hideDisplay(newActivityBox);
   showDisplay(currentActivityBox);
-  timerFormat(activity[0].minutes, activity[0].seconds);
-  userActivityInput.innerText = activity[0].description;
-  countdownTimer.innerText = `${activity[0].minutes.padStart(2, "0")}:${activity[0].seconds.padStart(2, "0")}`;
-  //console.log(newActivity[0].minutes);
-//  setInterval();
-};
-// function padThat(minutes, seconds) {
-//   return `${minutes.padStart(2, "0")}:${seconds.padStart(2, "0")}`;
-//
-// }
+  userActivityInput.innerText = padDigits(activity[0].description);
+  countdownTimer.innerText = `${padDigits(activity[0].minutes)}:${padDigits(activity[0].seconds)}`;
 
-function timerFormat(minutes, seconds) {
-  if (minutes < 10) {
-    minutes = `0${minutes}`
-  };
-  if (seconds < 10) {
-    seconds = `0${seconds}`
-  };
 };
 
-//var startingMinutes = 5;
-//var time = startingMinutes * 60;
-//
-// var countdownEl = document.getElementById('countdown');
-
-// function timeMath() {
-// }
-
-
-
-
-
-
-// setInterval(updateCountdown(mins, secs), 1000);
-
-// function updateCountdown(mins, secs) {
-//   var mins = Math.floor(time / 60);
-//   var secs = time % 60;
-//     countdownTimer.innerHTML = `${mins}:${secs}`;
-//
-//       time--;
-//
-// }
-
-
-
-// function timer () {
-// var mins = activity[0].minutes
-// var sec = activity[0].seconds
-//   if (mins === "minutes") {
-//     mins = mins * 60000;
-//   } else if (sec === "seconds") {
-//     sec = sec * 1000;
-//   }
-//
-//   var now = Date.now();
-//   endTime = now + (mins + sec);
-// timer(endTime);
-// interval = setInterval(() => {
-//   timer(endTime);
-// }, 1000);
-// }
-
-
-
-///practice clock
-// function initializeClock(id, endtime) {
-//   var clock = document.querySelector(id);
-//   var minutesSpan = clock.querySelector('.user-minutes')
-//   var secondsSpan = clock.querySelector('.user-seconds');
-//
-//   function updateClock() {
-//     var t = getTimeRemaining(endtime);
-//
-//     minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
-//     secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
-//
-//     if (t.total <= 0) {
-//       clearInterval(timeinterval);
-//     }
-//   }
-//
-//   updateClock();
-//   var timeinterval = setInterval(updateClock, 1000);
-// }
-//
-// var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000);
-// initializeClock('clockdiv', deadline);
+function markComplete() {
+  window.alert("You completed your activity!");
+}
