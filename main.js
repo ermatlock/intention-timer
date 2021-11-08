@@ -34,7 +34,7 @@ meditateButtonActive.addEventListener("click", deactivateMeditate);
 exerciseButton.addEventListener("click", activateExercise);
 exerciseButtonActive.addEventListener("click", deactivateExercise);
 startButton.addEventListener("click", startActivity);
-startTimerButton.addEventListener("click", activity[0].countdown());
+startTimerButton.addEventListener("click", methTime);
 // categoryButtons.addEventListener("click", checkButtons);
 
 // functions
@@ -157,10 +157,13 @@ function gatherData(category, description, minutes, seconds) {
   var seconds = userSeconds.value;
   var newActivity = new Activity(category, description, minutes, seconds);
   activity.push(newActivity);
-  console.log(newActivity);
+  console.log(activity);
   changeColor();
   // goToTimer();
 };
+function methTime() {
+activity[0].countdown()
+}
 
 function changeColor() {
   if (selected === "study") {
@@ -181,19 +184,23 @@ function changeColor() {
 function goToTimer(description, minutes, seconds) {
   hideDisplay(newActivityBox);
   showDisplay(currentActivityBox);
-  timerFormat();
+  timerFormat(activity[0].minutes, activity[0].seconds);
   userActivityInput.innerText = activity[0].description;
-  countdownTimer.innerText = `${activity[0].minutes}:${activity[0].seconds}`;
+  countdownTimer.innerText = `${activity[0].minutes.padStart(2, "0")}:${activity[0].seconds.padStart(2, "0")}`;
   //console.log(newActivity[0].minutes);
 //  setInterval();
 };
+// function padThat(minutes, seconds) {
+//   return `${minutes.padStart(2, "0")}:${seconds.padStart(2, "0")}`;
+//
+// }
 
-function timerFormat() {
-  if (activity[0].minutes < 10) {
-    activity[0].minutes = `0${activity[0].minutes}`
+function timerFormat(minutes, seconds) {
+  if (minutes < 10) {
+    minutes = `0${minutes}`
   };
-  if (activity[0].seconds < 10) {
-    activity[0].seconds = `0${activity[0].seconds}`
+  if (seconds < 10) {
+    seconds = `0${seconds}`
   };
 };
 
