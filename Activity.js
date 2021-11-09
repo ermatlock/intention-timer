@@ -5,9 +5,8 @@ class Activity {
     this.minutes = minutes;
     this.seconds = seconds;
     this.isCompleted = false;
-    // this.id = Date.now;
-
-  }
+    this.id = Date.now();
+  };
   countdown() {
     var minutes = this.minutes
     var seconds = this.seconds
@@ -20,19 +19,9 @@ class Activity {
         seconds+=59;
       } else{
         clearInterval(int);
-       markComplete();
+        markComplete();
       };
     countdownTimer.innerText = `${padDigits(minutes)}:${padDigits(seconds)}`
     }, 1000)
   };
-
-//   saveToStorage() {
-  // }
 };
-
-
-
-// var activity = [];
-// var selected = "none";
-// var invalidCharacters = ["e", "+", "-"];
-// module.exports = Activity;
