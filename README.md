@@ -4,7 +4,7 @@
 _This is our group project called Intention Timer. The application is built using JavaScript, HTML, and CSS._
    - The application provides the user with three categories from which they can then select.
    - Next, the user can then add their own description of the activity they want to accomplish.
-    - Finally, the user can input both the minutes and seconds they wish to dedicate towards their activity.
+   - Finally, the user can input both the minutes and seconds they wish to dedicate towards their activity.
 
 ---
 ### Installation Instructions
