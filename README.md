@@ -17,7 +17,7 @@ _This is our group project called Intention Timer. The application is built usin
 ---
 
 ### Home Page
-<br>
+
 Immediately the user is prompted with three category options: study, exercise, and meditate. From there, the user moves to the description field to specify what they would like to accomplish during this time. Additionally, the user inputs the number of minutes and seconds in the respective fields. Once all fields have been completed, the user clicks the 'Start Activity' button. All fields must be filled out in order to move on to the timer page, otherwise an error is shown depending on which field is left incomplete. 
 
 <br>
